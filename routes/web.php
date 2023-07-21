@@ -22,9 +22,9 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')-
    
     Route::match(['get' , 'post'] ,'login' , 'AdminController@login')->name('login');
     Route::group(['middleware' => ['admin']] , function(){
-        Route::get('dashboard' , 'AdminController@dashboard');
+        Route::get('dashboard' , 'AdminController@dashboard')->name('dashboard');
         Route::match(['get' , 'post'] , 'update-admin-password' , 'AdminController@updateAdminPassword')->name('update-admin-password');
-        Route::get('update-admin-details' , 'AdminController@updateAdminDetails')->name('update-admin-details');
+        Route::match(['get' , 'post'] ,'update-admin-details' , 'AdminController@updateAdminDetails')->name('update-admin-details');
         Route::post('check-current-password' , 'AdminController@CheckCurrentPassword')->name('check-current-password');
         Route::get('logout' , 'AdminController@logout')->name('logout');
     });

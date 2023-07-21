@@ -47,13 +47,13 @@
             <div class="card card-info">
               
               <div class="card-header">
-                <h3 class="card-title">Update Admin Password</h3>
+                <h3 class="card-title">Update Admin Details</h3>
                 
               </div>
               
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="post" action="{{ route('admin.update-admin-password') }}">
+              <form class="form-horizontal" method="post" action="{{ route('admin.update-admin-details') }}" >
                 @csrf
                 <div class="card-body">
                   <div class="form-group row">
@@ -64,37 +64,21 @@
                     
                   </div>
                   <div class="form-group row">
-                    <label for="current_password" class="col-sm-4 col-form-label">Current Password <span class="text-danger">*</span></label>
+                    <label for="admin_name" class="col-sm-4 col-form-label">Name <span class="text-danger">*</span></label>
                     <div class="col-sm-8">
-                      <input type="password" class="form-control" id="current_password" name="current_password" placeholder="Enter the current password ">
-                      @error('current_password')<span class="text-danger">{{ $message }}</span>@enderror
-                      <p id="verify_current_password" class="text-danger"></p>
+                      <input type="text" class="form-control" id="admin_name" name="admin_name" placeholder="Enter the Name" value="{{ Auth::guard('admin')->user()->name }}">
+                      @error('admin_name')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label for="password" class="col-sm-4 col-form-label">New Password <span class="text-danger">*</span></label>
+                    <label for="mobile" class="col-sm-4 col-form-label">Mobile <span class="text-danger">*</span></label>
                     <div class="col-sm-8">
-                      <input type="password" class="form-control" id="password" name="password" placeholder="Enter new password">
-                      @error('password')<span class="text-danger">{{ $message }}</span>@enderror
+                      <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter the mobile number" value="{{ Auth::guard('admin')->user()->mobile }}">
+                      @error('mobile')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                   </div>
                  
-                  <div class="form-group row">
-                    <label for="password_confirmation" class="col-sm-4 col-form-label">Re-enter Password <span class="text-danger">*</span></label>
-                    <div class="col-sm-8">
-                      <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Re-enter password">
-                      @error('password_confirmation')<span class="text-danger">{{ $message }}</span>@enderror
-                    </div>
-                  </div>
-                  {{-- <div class="form-group row">
-                    <div class="offset-sm-4 col-sm-8">
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck4">
-                        <label class="form-check-label" for="exampleCheck4">Remember me</label>
-                      </div>
-                    </div>
-                  </div> --}}
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
