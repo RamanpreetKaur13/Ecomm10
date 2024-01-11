@@ -8,7 +8,7 @@ use App\Models\Category;
 use Image;
 use App\Http\Requests\CategoryRequest;
 use App\Models\AdminRole;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {

@@ -1,6 +1,8 @@
 <?php
 // use Image;
 use App\Models\AdminRole;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 if (!function_exists('date_time_format')) {
    function date_time_format($date){
@@ -54,6 +56,7 @@ if (!function_exists('set_persmission_for_subadmins')) {
 
          //set admins / subadmins permissions
        $get_module = AdminRole::where(['subadmin_id' => Auth::guard('admin')->user()->id , 'module' => $module_name])->first();
+    //    dd($get_module);
        if ($get_module == null) {
         return redirect()->route('admin.dashboard')->with('error' , "This feature is restricted to you.");
 

@@ -10,9 +10,10 @@ use App\Models\Category;
 use App\Models\FamilyColor;
 use App\Models\Brand;
 use App\Http\Requests\ProductRequest;
-use Image;
+// use Image;
+use Intervention\Image\Facades\Image;
 use App\Models\AdminRole;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -29,24 +30,24 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('category')->get();
-        $productsModule =  set_persmission_for_subadmins('products');
-
+        // $productsModule =  set_persmission_for_subadmins('products');
+// die();
     //     //set admins / subadmins permissions
-    //    $productsModuleCount = AdminRole::where(['subadmin_id' => Auth::guard('admin')->user()->id , 'module' => 'products'])->count();
-    // //    dd($productsModuleCount);
+       $productsModuleCount = AdminRole::where(['subadmin_id' => Auth::guard('admin')->user()->id , 'module' => 'products'])->count();
+    //    dd($productsModuleCount);
 
-    //   $productsModule = [];
-    //   // if logged in user is superadmin , then he can access all the products
-    //   if (Auth::guard('admin')->user()->type == 'admin') {
-    //      $productsModule['view_access'] = 1;
-    //      $productsModule['edit_access'] = 1;
-    //      $productsModule['full_access'] = 1;
-    //   } elseif($productsModuleCount == 0) {
-    //      return redirect()->route('admin.dashboard')->with('error' , "This feature is restricted to you.");
-    //   }
-    //   else{
-    //       $productsModule = AdminRole::where(['subadmin_id' => Auth::guard('admin')->user()->id , 'module' => 'products'])->first();
-    //   }
+      $productsModule = [];
+      // if logged in user is superadmin , then he can access all the products
+      if (Auth::guard('admin')->user()->type == 'admin') {
+         $productsModule['view_access'] = 1;
+         $productsModule['edit_access'] = 1;
+         $productsModule['full_access'] = 1;
+      } elseif($productsModuleCount == 0) {
+         return redirect()->route('admin.dashboard')->with('error' , "This feature is restricted to you.");
+      }
+      else{
+          $productsModule = AdminRole::where(['subadmin_id' => Auth::guard('admin')->user()->id , 'module' => 'products'])->first();
+      }
 
         return view('admin.products.index' , compact('products' , 'productsModule') );
     }
