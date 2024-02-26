@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\FamilyColorController;
 use App\Http\Controllers\Admin\ProductDetailController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,5 +83,7 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')-
         Route::get('brand-logo/delete/{id}' , 'BrandController@deleteLogo');
 
 
+        // banners
+        Route::resource('banners', BannerController::class);
     });
 });
