@@ -54,16 +54,11 @@ class ProductController extends Controller
 
     public function updateProductStatus(Request $request)
     {
-        if ($request->ajax()) {
-            if ($request->status=='Active') {
-                $status = 0;
-            } else {
-                $status = 1;
-            }
-            Product::where('id' , $request->product_id)->update(['status' => $status]);
-            return response()->json(['status' => $status , 'product_id' => $request->product_id]);
-        }
+        $status =  update_status($request);
+        Product::where('id', $request->product_id)->update(['status' => $status]);
+        return response()->json(['status' => $status, 'product_id' => $request->product_id]);
     }
+    
     public function create()
     {
         $getCategories = Category::getCategories();

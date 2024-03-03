@@ -85,5 +85,14 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')-
 
         // banners
         Route::resource('banners', BannerController::class);
+        Route::controller(BannerController::class)->group(function(){
+            Route::post('update-banner-status' , 'updateBannerStatus')->name('update-banner-status');
+            Route::get('banner/delete/{id}' , 'delete');
+
+            
+        });
+
+
+        
     });
 });

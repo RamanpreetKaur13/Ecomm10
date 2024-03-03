@@ -38,49 +38,38 @@ $(document).ready(function () {
         });
     });
 
+    // create custom function to update the status
+    function updateStatus($status, $id ,$url ,$module) {
+            $.ajax({
+                type: 'post',
+                url: $url,
+                data: { status: $status, id: $id },
+                success: function (response) {
+                    console.log(response);
+                    if (response['status'] == 1) {
+                        $('#'+$module+'-' + $id).html('<i class="fa-solid fa-toggle-on status"  data-toggle="tooltip" title="Active" style="color:#007bff"' + $module+'_status="Active"></i>');
+                    } 
+                    else if (response['status'] == 0) {
+                        $('#'+$module+'-' + $id).html('<i class="fa-solid fa-toggle-off status"  data-toggle="tooltip" title="Inactive" style="color:grey"'  + $module+'_status="Inactive"></i>');
+                    }
+                }, error: function (response) {
+                    console.log('error' + response);
+                }
+            });
+    }
     // update subadmin status
     $(document).on("click", ".updateSubadminStatus", function () {
         var status = $(this).find(".status").attr("subadmin_status");
-
-
         var subadmin_id = $(this).attr('subadmin_id');
-        $.ajax({
-            type: 'post',
-            url: 'update-subadmin-status',
-            data: { status: status, subadmin_id: subadmin_id },
-            success: function (resp) {
-                console.log('success'+resp);
-                if (resp['status'] == 1) {
-                    $('#subadmin-' + subadmin_id).html('<i class="fa-solid fa-toggle-on status"  data-toggle="tooltip" title="Active" style="color:#007bff"  subadmin_status="Active"></i>');
-                } else if (resp['status'] == 0) {
-                    $('#subadmin-' + subadmin_id).html('<i class="fa-solid fa-toggle-off status"  data-toggle="tooltip" title="Inactive" style="color:grey"  subadmin_status="Inactive"></i>');
-                }
-            }, error: function () {
-                console.log('error' + resp);
-            }
-        });
+        updateStatus(status ,subadmin_id , 'update-subadmin-status' ,'subadmin');
     });
 
 
      // update CMS page status
      $(document).on("click", ".updateCmsPageStatus", function () {
         var status = $(this).find(".status").attr("page_status");
-
         var page_id = $(this).attr('page_id');
-        $.ajax({
-            type: 'post',
-            url: 'update-cms-page-status',
-            data: { status: status, page_id: page_id },
-            success: function (resp) {
-                if (resp['status'] == 1) {
-                    $('#page-' + page_id).html('<i class="fa-solid fa-toggle-on status"  data-toggle="tooltip" title="Active" style="color:#007bff"  page_status="Active"></i>');
-                } else if (resp['status'] == 0) {
-                    $('#page-' + page_id).html('<i class="fa-solid fa-toggle-off status"  data-toggle="tooltip" title="Inactive" style="color:grey"  page_status="Inactive"></i>');
-                }
-            }, error: function () {
-                console.log('error' + resp);
-            }
-        });
+        updateStatus( status ,page_id , 'update-cms-page-status' ,'page');
     });
 
 
@@ -121,65 +110,23 @@ $(document).ready(function () {
     // update Category page status
     $(document).on("click", ".updateCategoryStatus", function () {
         var status = $(this).find(".status").attr("category_status");
-
         var category_id = $(this).attr('category_id');
-        $.ajax({
-            type: 'post',
-            url: 'update-category-status',
-            data: { status: status, category_id: category_id },
-            success: function (resp) {
-                if (resp['status'] == 1) {
-                    $('#category-' + category_id).html('<i class="fa-solid fa-toggle-on status"  data-toggle="tooltip" title="Active" style="color:#007bff"  category_status="Active"></i>');
-                } else if (resp['status'] == 0) {
-                    $('#category-' + category_id).html('<i class="fa-solid fa-toggle-off status"  data-toggle="tooltip" title="Inactive" style="color:grey"  category_status="Inactive"></i>');
-                }
-            }, error: function () {
-                console.log('error' + resp);
-            }
-        });
+        updateStatus( status ,category_id , 'update-category-status' ,'category');
     });
 
 
      // update Products status
      $(document).on("click", ".updateProductStatus", function () {
         var status = $(this).find(".status").attr("product_status");
-
         var product_id = $(this).attr('product_id');
-        $.ajax({
-            type: 'post',
-            url: 'update-product-status',
-            data: { status: status, product_id: product_id },
-            success: function (resp) {
-                if (resp['status'] == 1) {
-                    $('#product-' + product_id).html('<i class="fa-solid fa-toggle-on status"  data-toggle="tooltip" title="Active" style="color:#007bff"  product_status="Active"></i>');
-                } else if (resp['status'] == 0) {
-                    $('#product-' + product_id).html('<i class="fa-solid fa-toggle-off status"  data-toggle="tooltip" title="Inactive" style="color:grey"  product_status="Inactive"></i>');
-                }
-            }, error: function () {
-                console.log('error' + resp);
-            }
-        });
+        updateStatus( status ,product_id , 'update-product-status' ,'product');
     });
 
        // update Products status
        $(document).on("click", ".updateFamilyColorStatus", function () {
         var status = $(this).find(".status").attr("family_colors_status");
         var family_colors_id = $(this).attr('family_colors_id');
-
-        $.ajax({
-            type: 'post',
-            url: 'update-family-colors-status',
-            data: { status: status, family_colors_id: family_colors_id },
-            success: function (resp) {
-                if (resp['status'] == 1) {
-                    $('#family_colors-' + family_colors_id).html('<i class="fa-solid fa-toggle-on status"  data-toggle="tooltip" title="Active" style="color:#007bff"  family_colors_status="Active"></i>');
-                } else if (resp['status'] == 0) {
-                    $('#family_colors-' + family_colors_id).html('<i class="fa-solid fa-toggle-off status"  data-toggle="tooltip" title="Inactive" style="color:grey"  family_colors_status="Inactive"></i>');
-                }
-            }, error: function () {
-                console.log('error' + resp);
-            }
-        });
+        updateStatus( status ,family_colors_id , 'update-family-colors-status' ,'family_colors');
     });
 
 
@@ -187,6 +134,9 @@ $(document).ready(function () {
     $(document).on("click", ".updateProductAttrStatus", function () {
         var status = $(this).find(".status").attr("product_attr_status");
         var productAttr_id = $(this).attr('productAttr_id');
+        // var url =window.location.origin+'/admin/update-product-attribute-status';
+        // updateStatus( status ,productAttr_id , url ,'productAttr');
+
         // alert(productAttr_id);
         $.ajax({
             type: 'post',
@@ -209,21 +159,15 @@ $(document).ready(function () {
     $(document).on("click", ".updateBrandStatus", function () {
         var status = $(this).find(".status").attr("brand_status");
         var brand_id = $(this).attr('brand_id');
-        // alert(productAttr_id);
-        $.ajax({
-            type: 'post',
-            url: 'update-brand-status',
-            data: { status: status, brand_id: brand_id },
-            success: function (resp) {
-                if (resp['status'] == 1) {
-                    $('#brand-' + brand_id).html('<i class="fa-solid fa-toggle-on status"  data-toggle="tooltip" title="Active" style="color:#007bff"  brand_status="Active"></i>');
-                } else if (resp['status'] == 0) {
-                    $('#brand-' + brand_id).html('<i class="fa-solid fa-toggle-off status"  data-toggle="tooltip" title="Inactive" style="color:grey"  brand_status="Inactive"></i>');
-                }
-            }, error: function () {
-                console.log('error' + resp);
-            }
-        });
+        updateStatus( status ,brand_id , 'update-brand-status' ,'brand');
+    });
+
+
+     // update Banner status
+     $(document).on("click", ".updateBannerStatus", function () {
+        var status = $(this).find(".status").attr("banner_status");
+        var banner_id = $(this).attr('banner_id');
+        updateStatus( status ,banner_id , 'update-banner-status' ,'banner');
     });
 
 

@@ -42,16 +42,9 @@ class CategoryController extends Controller
 
     public function updateCategoryStatus(Request $request)
     {
-        // dd($request);
-        if ($request->ajax()) {
-            if ($request->status=='Active') {
-                $status = 0;
-            } else {
-                $status = 1;
-            }
-            Category::where('id' , $request->category_id)->update(['status' => $status]);
-            return response()->json(['status' => $status , 'category_id' => $request->category_id]);
-        }
+        $status =  update_status($request);
+        Category::where('id', $request->category_id)->update(['status' => $status]);
+        return response()->json(['status' => $status, 'category_id' => $request->category_id]);
     }
     /**
      * Show the form for creating a new resource.

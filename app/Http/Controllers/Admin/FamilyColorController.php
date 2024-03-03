@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\FamilyColor;
 use App\Http\Requests\FamilyColorRequest;
 use App\Models\AdminRole;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class FamilyColorController extends Controller
 {
@@ -86,7 +86,6 @@ class FamilyColorController extends Controller
             'color_name' => $request->color_name,
             'color_code' => $request->color_code,
         ]);
-
             return redirect()->route('admin.family-colors.index')->with('success' , 'Family color updated successfully');
 
 
@@ -112,15 +111,9 @@ class FamilyColorController extends Controller
 
     public function updateFamilyColorStatus(Request $request)
     {
-        if ($request->ajax()) {
-            if ($request->status=='Active') {
-                $status = 0;
-            } else {
-                $status = 1;
-            }
-            FamilyColor::where('id' , $request->family_colors_id)->update(['status' => $status]);
-            return response()->json(['status' => $status , 'family_colors_id' => $request->family_colors_id]);
-        }
+        $status =  update_status($request);
+        FamilyColor::where('id', $request->family_colors_id)->update(['status' => $status]);
+        return response()->json(['status' => $status, 'family_colors_id' => $request->family_colors_id]);
     }
 
 }

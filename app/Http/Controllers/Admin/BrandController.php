@@ -156,15 +156,10 @@ class BrandController extends Controller
 
     public function updateBrandStatus(Request $request)
     {
-        if ($request->ajax()) {
-            if ($request->status == 'Active') {
-                $status = 0;
-            } else {
-                $status = 1;
-            }
-            Brand::where('id', $request->brand_id)->update(['status' => $status]);
-            return response()->json(['status' => $status, 'brand_id' => $request->brand_id]);
-        }
+        $status =  update_status($request);
+        Brand::where('id', $request->brand_id)->update(['status' => $status]);
+        return response()->json(['status' => $status, 'brand_id' => $request->brand_id]);
+
     }
 
 

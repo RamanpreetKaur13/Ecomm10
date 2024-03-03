@@ -105,15 +105,20 @@ class ProductDetailController extends Controller
 
     public function updateProductAttrStatus(Request $request)
     {
-        if ($request->ajax()) {
-            if ($request->status=='Active') {
-                $status = 0;
-            } else {
-                $status = 1;
-            }
-            ProductAttribute::where('id' , $request->productAttr_id)->update(['status' => $status]);
-            return response()->json(['status' => $status , 'productAttr_id' => $request->productAttr_id]);
-        }
+        // if ($request->ajax()) {
+        //     if ($request->status=='Active') {
+        //         $status = 0;
+        //     } else {
+        //         $status = 1;
+        //     }
+        //     ProductAttribute::where('id' , $request->productAttr_id)->update(['status' => $status]);
+        //     return response()->json(['status' => $status , 'productAttr_id' => $request->productAttr_id]);
+        // }
+
+        $status =  update_status($request);
+        ProductAttribute::where('id', $request->productAttr_id)->update(['status' => $status]);
+        return response()->json(['status' => $status, 'productAttr_id' => $request->productAttr_id]);
+
     }
 
     public function delete($id)

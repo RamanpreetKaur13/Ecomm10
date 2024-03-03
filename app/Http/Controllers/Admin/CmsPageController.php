@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CmsPage;
 use App\Http\Requests\CmsPageRequest;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\AdminRole;
 
 class CmsPageController extends Controller
@@ -117,16 +117,8 @@ class CmsPageController extends Controller
 
     public function updateCmsPageStatus(Request $request)
     {
-        if ($request->ajax()) {
-            if ($request->status=='Active') {
-                $status = 0;
-            } else {
-                $status = 1;
-            }
-            CmsPage::where('id' , $request->page_id)->update(['status' => $status]);
-            return response()->json(['status' => $status , 'page_id' => $request->page_id]);
-        }
+        $status =  update_status($request);
+        CmsPage::where('id', $request->page_id)->update(['status' => $status]);
+        return response()->json(['status' => $status, 'page_id' => $request->page_id]);
     }
-
-
 }
