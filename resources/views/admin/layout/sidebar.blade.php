@@ -65,6 +65,17 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{ route('admin.banners.index') }}"
+                            class="nav-link @if (Route::currentRouteName() == 'admin.banners.index') active @endif">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Banners
+                                {{-- <span class="right badge badge-danger">New</span> --}}
+                            </p>
+                        </a>
+                    </li>
+
                 @if (Auth::guard('admin')->user()->type == 'admin')
                 <li class="nav-item">
                     <a href="{{ route('admin.subadmins.index') }}"

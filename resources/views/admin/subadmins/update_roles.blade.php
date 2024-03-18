@@ -201,6 +201,27 @@
                                                             @endphp
                                                         @endif
 
+                                                        @if ($admin_role->module == 'banner')
+                                                            @php
+                                                                if ($admin_role->view_access == 1) {
+                                                                    $viewBanner = 'checked';
+                                                                } else {
+                                                                    $viewBanner = '';
+                                                                }
+                                                                if ($admin_role->edit_access == 1) {
+                                                                    $editBanner = 'checked';
+                                                                } else {
+                                                                    $editBanner = '';
+                                                                }
+                                                                if ($admin_role->full_access == 1) {
+                                                                    $fullBanner = 'checked';
+                                                                } else {
+                                                                    $fullBanner = '';
+                                                                }
+
+                                                            @endphp
+                                                        @endif
+
 
                                                     @endforeach
                                                     <tr class="text-center">
@@ -345,7 +366,7 @@
 
 
                                                     <tr class="text-center">
-                                                        <td>3</td>
+                                                        <td>5</td>
                                                         <td>Products</td>
                                                         <td>
                                                             <div class="custom-control custom-checkbox text-center">
@@ -378,6 +399,43 @@
                                                             </div>
                                                         </td>
                                                     </tr>
+
+                                                    <tr class="text-center">
+                                                        <td>6</td>
+                                                        <td>Banners</td>
+                                                        <td>
+                                                            <div class="custom-control custom-checkbox text-center">
+                                                                <input class="custom-control-input" type="checkbox"
+                                                                    id="bannerViewCheckbox" value="1"
+                                                                    name="banner[view]"
+                                                                    @if (isset($viewBanner)) {{ $viewBanner }} @endif>
+                                                                <label for="bannerViewCheckbox"
+                                                                    class="custom-control-label"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="custom-control custom-checkbox text-center">
+                                                                <input class="custom-control-input" type="checkbox"
+                                                                    id="bannerEditCheckbox" value="1"
+                                                                    name="banner[edit]"
+                                                                    @if (isset($editBanner)) {{ $editBanner }} @endif>
+                                                                <label for="bannerEditCheckbox"
+                                                                    class="custom-control-label"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="custom-control custom-checkbox text-center">
+                                                                <input class="custom-control-input" type="checkbox"
+                                                                    id="bannerFullCheckbox" value="1"
+                                                                    name="banner[full]"
+                                                                    @if (isset($fullBanner)) {{ $fullBanner }} @endif>
+                                                                <label for="bannerFullCheckbox"
+                                                                    class="custom-control-label"></label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+
 
 
                                                 </tbody>

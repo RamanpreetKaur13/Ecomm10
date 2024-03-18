@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Models\Admin;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\Brand;
+use App\Models\User;
 use Image;
 use App\Http\Requests\AdminRequest;
 use App\Models\AdminRole;
@@ -16,7 +20,11 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $categoryCount = Category::get()->count();
+        $productCount = Product::get()->count();
+        $brandCount = Brand::get()->count();
+        $userCount = User::get()->count();
+        return view('admin.dashboard' ,compact('categoryCount','productCount','brandCount','userCount'));
     }
 
     public function login(Request $request)
@@ -215,6 +223,7 @@ class AdminController extends Controller
     {
         $subadmin  = Admin::find($id);
         $get_admin_roles = AdminRole::where('subadmin_id', $id)->get();
+       
         return view('admin.subadmins.update_roles')->with(compact('subadmin', 'get_admin_roles'));
     }
 
@@ -223,6 +232,7 @@ class AdminController extends Controller
     public function updateSubadminRoles(Request $request, $id)
     {
 
+       
         $existing_admin_roles = AdminRole::where('subadmin_id', $id)->delete();
 
         $data = $request->all();

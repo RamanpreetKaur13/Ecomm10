@@ -77,7 +77,8 @@ class BannerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $banner = Banner::find($id);
+        return view('admin.banners.edit')->with(compact('banner'));
     }
 
     /**
@@ -85,7 +86,19 @@ class BannerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if ($request->hasFile('image')) {
+            $data['image'] = store_image('image', 'app/public/front/images/banners/');
+        }
+        
+        $data['title'] = $request->title;
+        $data['link'] = $request->link;
+        $data['type'] = $request->type;
+        $data['alt'] = $request->alt;
+        $data['sort'] = $request->sort;
+        $data['status'] = $request->status;
+        $banner =  Banner::where('id', $id)->update($data);
+        return redirect()->route('admin.banners.index')->with('success', 'Banner updated successfully');
+
     }
 
     /**
