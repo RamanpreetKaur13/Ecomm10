@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\ProductDetailController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\BannerController;
 
+use App\Http\Controllers\Front\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +26,13 @@ use App\Http\Controllers\Admin\BannerController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// front routes 
+Route::namespace('App\Http\Controllers\Front')->group(function(){
+
+    Route::get('/' , [HomeController::class ,'home'])->name('home');
+});
+
 
 Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')->group(function(){
     // Route::middleware(['guest'])->group(function () {
