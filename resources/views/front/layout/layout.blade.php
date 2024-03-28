@@ -14,11 +14,16 @@
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/assets/css/bootstrap.min.css ')}}">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    {{--
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/assets/css/bootstrap.min.css ')}}"> --}}
 
     <link rel="stylesheet" type="text/css" href="{{ asset('front/assets/css/font-awesome.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('front/assets/css/templatemo-hexashop.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/css/style.css') }}">
+    {{--
+    <link rel="stylesheet" href="{{ asset('front/assets/css/templatemo-hexashop.css') }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('front/assets/css/owl-carousel.css') }}">
 
@@ -30,6 +35,7 @@ TemplateMo 571 Hexashop
 https://templatemo.com/tm-571-hexashop
 
 -->
+@stack('style')
 </head>
 
 <body>
@@ -61,7 +67,9 @@ https://templatemo.com/tm-571-hexashop
 
     <!-- Bootstrap -->
     <script src="{{ asset('front/assets/js/popper.js') }}"></script>
-    <script src="{{ asset('front/assets/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    {{-- <script src="{{ asset('front/assets/js/bootstrap.min.js') }}"></script> --}}
 
     <!-- Plugins -->
     <script src="{{ asset('front/assets/js/owl-carousel.js') }}"></script>
@@ -76,7 +84,7 @@ https://templatemo.com/tm-571-hexashop
     <script src="{{ asset('front/assets/js/isotope.js') }}"></script>
 
     <!-- Global Init -->
-    <script src="{{ asset('front/assets/js/custom.js') }}"></script>
+    <script src="{{ asset('front/assets/js/frontCustom.js') }}"></script>
 
     <script>
         $(function() {
@@ -95,6 +103,7 @@ https://templatemo.com/tm-571-hexashop
 
     </script>
 
+@stack('script')
 </body>
 
 </html>

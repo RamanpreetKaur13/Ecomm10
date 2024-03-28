@@ -23,6 +23,15 @@
             padding-top: 3px;
 
         }
+
+        .ck.ck-content {
+    background-color: #f5f5f5; /* Change to the desired background color */
+}
+
+/* Change text color */
+.ck.ck-content {
+    color: #333; /* Change to the desired text color */
+}
     </style>
 
 @endpush
@@ -45,12 +54,14 @@
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label for="title">Banner Title</label>
-                                            <input type="text" class="form-control" id="title"
+                                            <textarea name="title" id="title" class="form-control summernote"
+                                            placeholder="Enter Banner Title">{{ old('title', $banner->title) }}</textarea>
+                                            {{-- <input type="text" class="form-control" id="summernote"
                                                 name="title" placeholder="Enter category name"
-                                                value="{{ old('title', $banner->title) }}">
+                                                value="{{ old('title', $banner->title) }}">--}}
                                             @error('title')
                                                 <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
+                                            @enderror 
                                         </div>
 
                                         <div class="form-group col-6">
@@ -130,10 +141,11 @@
                                                 value="{{ $banner->status }}">
                                         </div>
 
+                                      
                                         <div class="form-group col-6">
                                             <label for="sort"> Sort</label>
                                             <input type="text" class="form-control" id="sort"
-                                                name="sort" placeholder="Enter sort number" value="{{ old('sort') ,$banner->sort }}">
+                                                name="sort" placeholder="Enter sort number" value="{{ old('sort',$banner->sort)  }}">
                                                
                                         </div>
 

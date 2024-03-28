@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\AdminRole;
+
+use App\Http\Requests\BannerRequest;
 use Illuminate\Support\Facades\Auth;
 
 class BannerController extends Controller
@@ -15,7 +17,7 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banners = Banner::get();
+        $banners = Banner::orderBy('id','DESC')->get();
         //set admins / subadmins permissions
         $bannerModuleCount = AdminRole::where(['subadmin_id' => Auth::guard('admin')->user()->id, 'module' => 'banner'])->count();
         // dd($cmsPageModuleCount);
@@ -47,8 +49,9 @@ class BannerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BannerRequest $request)
     {
+      
         $data = [];
         if($request->hasFile('image')){
             $data['image']= store_image('image' ,'app/public/front/images/banners/' );
@@ -84,8 +87,9 @@ class BannerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BannerRequest $request, string $id)
     {
+        
         if ($request->hasFile('image')) {
             $data['image'] = store_image('image', 'app/public/front/images/banners/');
         }

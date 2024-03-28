@@ -14,9 +14,12 @@
         @csrf
         <div class="card-body">
             <div class="row">
-                <x-forms.text-input label="Banner Title" type="text" name="title" placeholder="Enter Banner Title" />
-                <x-forms.file-component label="Banner Image" name="image" />
+                {{-- <x-forms.text-input label="Banner Title" type="text" name="title" placeholder="Enter Banner Title" id="title" /> --}}
+                <x-forms.textarea-component label="Banner Title" name="title" placeholder="Enter Banner Title" />
+                
 
+                {{-- <textarea name="title" id="title"cols="30" rows="10"></textarea> --}}
+                <x-forms.file-component label="Banner Image" name="image" />
             </div>
             <div class="row">
                 <x-forms.text-input label="Banner Image Link" type="text" name="link" placeholder="Enter image link" />

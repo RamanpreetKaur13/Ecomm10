@@ -664,7 +664,7 @@ banner
 .main-banner .left-content .inner-content {
   position: absolute;
   left: 100px;
-  top: 50%;
+  top: 70%;
   transform: translateY(-50%);
 }
 
@@ -759,7 +759,131 @@ banner
   margin-bottom: 20px;
 }
 
+/* 
+---------------------------------------------
+banner slider
+--------------------------------------------- 
+*/
 
+.left-content {
+  position: relative;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+}
+
+.slide {
+  flex: 0 0 100%;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+/* .slide img {
+  width: 100%;
+  height: auto;
+} */
+
+
+.arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.arrow-left,
+.arrow-right {
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+  background-color:rgb(0 0 0 / 10%);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  background-color: rgba(0, 0, 0, 0.306);
+}
+
+.indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  /* Align indicators horizontally */
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #333;
+}
+
+.slide img {
+  width: 100%;
+  /* height: auto; */
+  height: 640px;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.slide-text {
+  position: absolute;
+  top: 50%; /* Position the text at 50% from the top */
+  transform: translateY(-50%); /* Center the text vertically */
+  left: 20px; /* Adjust the distance from the left as needed */
+  color: #fff; /* Text color */
+  text-align: left; /* Align text to the left */
+  padding: 20px; /* Add padding for better readability */
+}
+
+.slide-text h2 {
+  margin-bottom: 10px; /* Adjust the margin between title and description */
+  font-size: 28px; /* Title font size */
+}
+
+.slide-text p {
+  font-size: 16px; /* Description font size */
+  color: #cfcfcf;
+}
+
+/* 
+---------------------------------------------
+banner slider ends
+--------------------------------------------- 
+*/
 
 /*
 ---------------------------------------------
@@ -2278,12 +2402,18 @@ responsive
 }
 
 @media (max-width: 767px) {
+
+  .main-banner .left-content .thumb img 
+  {
+    height: 350px;
+  }
   .main-banner .left-content .thumb .inner-content {
     left: 50%;
-    top: 47.5%;
+    top: 41.5%;
     transform: translate(-50%,-50%);
     text-align: center;
   }
+
   .subscribe form button {
     width: 100%;
   }

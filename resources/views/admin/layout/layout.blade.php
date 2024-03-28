@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="{{ asset('admin/plugins/select2/css/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 
+  <link href="summernote-bs5.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs5.css') }}">
   @stack('styles')
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -104,6 +106,11 @@
 <!-- jquery-sweetalert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer="defer"></script>
 
+
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script> --}}
+{{-- CKEditor CDN --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+<script src="{{ asset('admin/plugins/summernote/summernote-bs5.js') }}"></script>
 
 
 @stack('script')

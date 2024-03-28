@@ -186,3 +186,93 @@
 
 
 })(window.jQuery);
+
+
+// working with arrow and auto slider
+$(document).ready(function() {
+	var slides = $('.slide');
+	var totalSlides = slides.length;
+	var currentIndex = 0;
+	var autoSlideInterval = 2000; // Adjust auto slide interval as needed
+	var autoSlideTimer;
+  
+	// Function to show slide
+	function showSlide(index) {
+	  slides.removeClass('active');
+	  slides.eq(index).addClass('active');
+	  currentIndex = index;
+	}
+  
+	// Function to show next slide
+	function showNextSlide() {
+	  var nextIndex = currentIndex + 1;
+	  if (nextIndex >= totalSlides) {
+		nextIndex = 0;
+	  }
+	  showSlide(nextIndex);
+	}
+  
+	// Function to start auto slide
+	function startAutoSlide() {
+	  autoSlideTimer = setInterval(function() {
+		showNextSlide();
+	  }, autoSlideInterval);
+	}
+  
+	// Function to stop auto slide
+	function stopAutoSlide() {
+	  clearInterval(autoSlideTimer);
+	}
+  
+	// Start auto slide
+	startAutoSlide();
+  
+	// Handle mouse enter event to pause auto slide
+	$('.slider-container').mouseenter(function() {
+	  stopAutoSlide();
+	});
+  
+	// Handle mouse leave event to resume auto slide
+	$('.slider-container').mouseleave(function() {
+	  startAutoSlide();
+	});
+  
+	// Handle left arrow click
+	$('.arrow-left').click(function() {
+	  var prevIndex = currentIndex - 1;
+	  if (prevIndex < 0) {
+		prevIndex = totalSlides - 1;
+	  }
+	  showSlide(prevIndex);
+	});
+  
+	// Handle right arrow click
+	$('.arrow-right').click(function() {
+	  showNextSlide();
+	});
+  
+	// Handle click on indicators
+	$('.indicator').click(function() {
+	  var index = $(this).index();
+	  showSlide(index);
+	});
+  
+	// Handle left arrow key press
+	$(document).on('keydown', function(event) {
+	  if (event.which === 37) { // Left arrow key
+		var prevIndex = currentIndex - 1;
+		if (prevIndex < 0) {
+		  prevIndex = totalSlides - 1;
+		}
+		showSlide(prevIndex);
+	  }
+	});
+  
+	// Handle right arrow key press
+	$(document).on('keydown', function(event) {
+	  if (event.which === 39) { // Right arrow key
+		showNextSlide();
+	  }
+	});
+  });
+  

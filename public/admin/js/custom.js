@@ -4,6 +4,41 @@
 
 
 $(document).ready(function () {
+    $('.summernote').summernote({
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+           ['font', ['strikethrough', 'superscript', 'subscript', 'fontsize', 'fontname']],
+           ['color', ['forecolor', 'backcolor']],
+           ['para', ['ul', 'ol', 'paragraph']],
+           ['height', ['height']],
+           ['insert', ['link', 'picture', 'video', 'table', 'hr']],
+           ['view', ['fullscreen', 'codeview']],
+           ['help', ['help']],
+            ['custom', ['rupeeSymbol']], // Add your custom button
+        ],
+        buttons: {
+            rupeeSymbol: RupeeSymbolButton // Define the behavior for the custom button
+        }
+    });
+
+     // Define the behavior for the custom button
+     function RupeeSymbolButton(context) {
+        var ui = $.summernote.ui;
+
+        // create button
+        var button = ui.button({
+            contents: '₹',
+            tooltip: 'Rupee Symbol',
+            click: function () {
+                // Insert ₹ at the current cursor position
+                context.invoke('editor.insertText', '₹');
+            }
+        });
+
+        return button.render();   // return button as jquery object
+    }
+
+    // $('.summernote').summernote();
     $('[data-toggle="tooltip"]').tooltip();
     $('.select2').select2()
 
@@ -198,5 +233,6 @@ $(document).ready(function () {
         $(this).parent('div').remove(); //Remove field html
         x--; //Decrease field counter
     });
+
 
 });

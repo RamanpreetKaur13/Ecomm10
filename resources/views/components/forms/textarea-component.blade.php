@@ -4,6 +4,7 @@
 
 <div class="form-group col-6">
     <label for="{{ $name }}">{{ $label }}</label>
-    <textarea class="form-control" name="{{ $name }}" rows="1" placeholder="{{ $placeholder }}"
+    <textarea class="form-control summernote" name="{{ $name }}" id="{{ $name }}" rows="1" placeholder="{{ $placeholder }}"
         value="{{ old($name) }}"></textarea>
 </div>
+
