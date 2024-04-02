@@ -14,4 +14,10 @@ class HomeController extends Controller
         $getFixedBanners = Banner::where(['status' => 1 ,'type' => 'Fixed'])->get();
         return view('front.home' ,compact('getScrollBanners' , 'getFixedBanners'));
     }
+
+    public function header(){
+
+        return view('front.header');
+
+    }
 }

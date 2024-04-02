@@ -3,39 +3,21 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-        rel="stylesheet">
-
-    <title>Hexashop</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- <link rel="stylesheet" href="style.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in</title>
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    {{--
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/assets/css/bootstrap.min.css ')}}"> --}}
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/assets/css/font-awesome.css') }}">
-
+    {{-- <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"> --}}
+   
     <link rel="stylesheet" href="{{ asset('front/assets/css/style.css') }}">
-    {{--
-    <link rel="stylesheet" href="{{ asset('front/assets/css/templatemo-hexashop.css') }}"> --}}
-
-    <link rel="stylesheet" href="{{ asset('front/assets/css/owl-carousel.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('front/assets/css/lightbox.css') }}">
-    <!--
-
-TemplateMo 571 Hexashop
-
-https://templatemo.com/tm-571-hexashop
-
--->
-@stack('style')
+   
+    @stack('style')
 </head>
 
 <body>
@@ -72,7 +54,7 @@ https://templatemo.com/tm-571-hexashop
     {{-- <script src="{{ asset('front/assets/js/bootstrap.min.js') }}"></script> --}}
 
     <!-- Plugins -->
-    <script src="{{ asset('front/assets/js/owl-carousel.js') }}"></script>
+    {{-- <script src="{{ asset('front/assets/js/owl-carousel.js') }}"></script>
     <script src="{{ asset('front/assets/js/accordions.js') }}"></script>
     <script src="{{ asset('front/assets/js/datepicker.js') }}"></script>
     <script src="{{ asset('front/assets/js/scrollreveal.min.js') }}"></script>
@@ -81,12 +63,13 @@ https://templatemo.com/tm-571-hexashop
     <script src="{{ asset('front/assets/js/imgfix.min.js') }}"></script>
     <script src="{{ asset('front/assets/js/slick.js') }}"></script>
     <script src="{{ asset('front/assets/js/lightbox.js') }}"></script>
-    <script src="{{ asset('front/assets/js/isotope.js') }}"></script>
+    <script src="{{ asset('front/assets/js/isotope.js') }}"></script> --}}
 
     <!-- Global Init -->
-    <script src="{{ asset('front/assets/js/frontCustom.js') }}"></script>
+    {{-- <script src="{{ asset('front/assets/js/frontCustom.js') }}"></script> --}}
+    <script src="{{ asset('front/assets/js/app.js') }}"></script>
 
-    <script>
+    {{-- <script>
         $(function() {
             var selectedClass = "";
             $("p").click(function(){
@@ -101,9 +84,29 @@ https://templatemo.com/tm-571-hexashop
             });
         });
 
-    </script>
+    </script> --}}
 
-@stack('script')
+    <script>
+        // Page loading animation
+	$(window).on('load', function() {
+		if($('.cover').length){
+			$('.cover').parallax({
+				imageSrc: $('.cover').data('image'),
+				zIndex: '1'
+			});
+		}
+
+		$("#preloader").animate({
+			'opacity': '0'
+		}, 600, function(){
+			setTimeout(function(){
+				$("#preloader").css("visibility", "hidden").fadeOut();
+			}, 300);
+		});
+	});
+    </script>
+    @stack('script')
+
 </body>
 
 </html>

@@ -52,7 +52,7 @@
                                 @method('PUT')
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="form-group col-6">
+                                        <div class="form-group col-12">
                                             <label for="title">Banner Title</label>
                                             <textarea name="title" id="title" class="form-control summernote"
                                             placeholder="Enter Banner Title">{{ old('title', $banner->title) }}</textarea>
@@ -64,20 +64,14 @@
                                             @enderror 
                                         </div>
 
-                                        <div class="form-group col-6">
-                                            <label for="link">Banner link</label>
-                                            <input type="text" class="form-control" id="link"
-                                                name="link" placeholder="Enter Banner Link"
-                                                value="{{ old('link', $banner->link) }}">
-                                        </div>
-
+                                       
 
                                     </div>
                                     <div class="row">
 
                                        
                                         <div class="form-group col-6">
-                                            <label for="alt">Banner Alt</label>
+                                            <label for="alt">Banner Alt <small>only for admin (not for front)</small></label>
                                             <input type="text" class="form-control" id="alt"
                                                 name="alt" placeholder="Enter Banner alt"
                                                 value="{{ old('alt', $banner->alt) }}">
@@ -172,6 +166,14 @@
                                                         alt="" srcset="" height="130px" width="150px">
                                             </div>
                                             @endif
+                                        </div>
+
+
+                                        <div class="form-group col-6">
+                                            <label for="link">Banner link</label>
+                                            <input type="text" class="form-control" id="link"
+                                                name="link" placeholder="Enter Banner Link"
+                                                value="{{ old('link', $banner->link) }}">
                                         </div>
 
 

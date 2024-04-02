@@ -26,7 +26,7 @@ class BannerRequest extends FormRequest
                 'title' => 'required',
                 'link' => 'nullable',
                 'type' => 'required',
-                'alt' => 'nullable',
+                'alt' => 'required',
                 'sort' => 'required|numeric',
             ];
         }
@@ -35,7 +35,7 @@ class BannerRequest extends FormRequest
                 'title' => 'required',
                 'link' => 'nullable',
                 'type' => 'required',
-                'alt' => 'nullable',
+                'alt' => 'required',
                 'sort' => 'required|numeric',
                 'image' => 'required',
             ];

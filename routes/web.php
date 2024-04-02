@@ -31,6 +31,7 @@ Route::get('/', function () {
 Route::namespace('App\Http\Controllers\Front')->group(function(){
 
     Route::get('/' , [HomeController::class ,'home'])->name('home');
+    Route::get('header' , [HomeController::class ,'header'])->name('header');
 });
 
 

@@ -18,7 +18,13 @@ $(document).ready(function () {
         ],
         buttons: {
             rupeeSymbol: RupeeSymbolButton // Define the behavior for the custom button
-        }
+        },
+        fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '36','38','40','42','44','46',
+         '48','50' ,'52', '54','56' ,'58', '60','62' ,'64', '66','68' ,'70', '72','74' ,'76', '78','80' ,
+         '82', '84','86' ,'88', '90', '92', '94'] ,// Add font sizes as needed
+         lineHeights: ['1', '1.15', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5', '5.5', 
+         '6', '6.5','7' ,'7.5','8' ,'8.0' ,'8.5' ,'9'] // Add line heights as needed
+
     });
 
      // Define the behavior for the custom button

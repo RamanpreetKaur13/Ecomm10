@@ -23,7 +23,8 @@
                                         <tr>
                                             <th>S.no.</th>
                                             <th>Image</th>
-                                            <th>Title</th>
+                                            {{-- <th>Title</th> --}}
+                                            <th>Name</th>
                                             <th>Type</th>
                                             <th>Link</th>
                                             <th>Sort</th>
@@ -45,7 +46,8 @@
                                                 <td>
                                                     <img src="{{ asset('storage/front/images/banners/'.$banner->image) }}" alt="" srcset="" width="100px" height="80px">
                                                     {{-- {{ $banner->image }}</td> --}}
-                                                <td>{!! $banner->title !!}</td>
+                                                {{-- <td>{!! $banner->title !!}</td> --}}
+                                                <td>{{ $banner->alt }}</td>
                                                 <td>{{ $banner->type }}</td>
                                                 <td>{{ $banner->link }}</td>
                                                 <td>{{ $banner->sort }}</td>

@@ -190,17 +190,28 @@
 
 // working with arrow and auto slider
 $(document).ready(function() {
+	
 	var slides = $('.slide');
+	
 	var totalSlides = slides.length;
 	var currentIndex = 0;
 	var autoSlideInterval = 2000; // Adjust auto slide interval as needed
 	var autoSlideTimer;
   
+	// Hide all slides initially
+    slides.hide();
+	// Show the current slide
+    showSlide(currentIndex);
 	// Function to show slide
 	function showSlide(index) {
-	  slides.removeClass('active');
-	  slides.eq(index).addClass('active');
-	  currentIndex = index;
+	//   slides.removeClass('active');
+	//   slides.eq(index).addClass('active');
+	//   currentIndex = index;
+
+	slides.hide(); // Hide all slides
+	slides.eq(index).show(); // Show the current slide
+	currentIndex = index;
+	
 	}
   
 	// Function to show next slide
@@ -213,29 +224,29 @@ $(document).ready(function() {
 	}
   
 	// Function to start auto slide
-	function startAutoSlide() {
-	  autoSlideTimer = setInterval(function() {
-		showNextSlide();
-	  }, autoSlideInterval);
-	}
+	// function startAutoSlide() {
+	//   autoSlideTimer = setInterval(function() {
+	// 	showNextSlide();
+	//   }, autoSlideInterval);
+	// }
   
 	// Function to stop auto slide
-	function stopAutoSlide() {
-	  clearInterval(autoSlideTimer);
-	}
+	// function stopAutoSlide() {
+	//   clearInterval(autoSlideTimer);
+	// }
   
 	// Start auto slide
-	startAutoSlide();
+	// startAutoSlide();
   
 	// Handle mouse enter event to pause auto slide
-	$('.slider-container').mouseenter(function() {
-	  stopAutoSlide();
-	});
+	// $('.slider-container').mouseenter(function() {
+	//   stopAutoSlide();
+	// });
   
-	// Handle mouse leave event to resume auto slide
-	$('.slider-container').mouseleave(function() {
-	  startAutoSlide();
-	});
+	// // Handle mouse leave event to resume auto slide
+	// $('.slider-container').mouseleave(function() {
+	//   startAutoSlide();
+	// });
   
 	// Handle left arrow click
 	$('.arrow-left').click(function() {

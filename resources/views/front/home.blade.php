@@ -1,690 +1,292 @@
 @extends('front.layout.layout')
 
 
+
 @section('content')
 
-<div class="main-banner" id="top">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-6">
-        <!-- carousel slider starts -->
 
-        <div class="left-content">
-
-          <div class="thumb">
-            {{-- <div class="inner-content">
-              <h4>We Are Hexashop</h4>
-              <span>Awesome, clean &amp; creative HTML5 Template</span>
-              <div class="main-border-button">
-                <a href="#">Purchase Now!</a>
-              </div>
-            </div> --}}
-            <div class="slider-container">
-              <div class="slider">
-               
-                @foreach ($getScrollBanners as $scrollBanner)
-                <div class="slide active">
-                  <div class="slide-overlay"></div>
-                  <img src="{{ asset('storage/front/images/banners/'.$scrollBanner->image) }}" alt="Image 1">
-                  <div class="slide-text">
-                    <h2>{!! $scrollBanner->title !!}</h2>
-                    <p>{{ $scrollBanner->alt}}</p>
-                  </div>
-                </div>
-                @endforeach
-              </div>
-              <div class="indicators"></div>
-              <div class="arrows">
-                <div class="arrow-left">&lt;</div>
-                <div class="arrow-right">&gt;</div>
-              </div>
+<section class="sec-1">
+  <div class="container">
+    <div class="container-1">
+      <div class="para">
+        <p>You are on Amazon.com. You can also shop on Amazon India for millions of products with fast local delivery.
+        </p><a
+          href="https://www.amazon.in/?&ext_vrnc=hi&tag=googhydrabk1-21&ref=pd_sl_nxqtetlae_e&adgrpid=60571832564&hvpone=&hvptwo=&hvadid=486453138860&hvpos=&hvnetw=g&hvrand=12535176714638732243&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9061830&hvtargid=kwd-296458789801&hydadcr=14452_2154371&gclid=Cj0KCQjwnvOaBhDTARIsAJf8eVNJ6D0_UEAgzp9_IEK8-AtbwjPY81k1murdrRDI1PsbLEmGdhyqKDMaArp9EALw_wcB">Click
+          here to go to amazon.in</a>
+      </div>
+      <div class="product-comp">
+        <div class="box">
+          <h3>Gaming Accessories</h3>
+          <div class="box-a">
+            <div>
+              <img src="{{ asset('front/assets/images/ga1.jpg') }}" alt="">
+              <span>Headsets</span>
             </div>
-
-            {{-- <img src="{{ asset('front/assets/images/left-banner-image.jpg') }}" alt=""> --}}
+            <div>
+              <img src="{{ asset('front/assets/images/ga2.jpg') }}" alt="">
+              <span>Keyboards</span>
+            </div>
+            <div>
+              <img src="{{ asset('front/assets/images/ga3.jpg') }}" alt="">
+              <span>Computer mice</span>
+            </div>
+            <div>
+              <img src="{{ asset('front/assets/images/ga4.jpg') }}" alt="">
+              <span>Chairs</span>
+            </div>
+          </div>
+          <a href="#">See More</a>
+        </div>
+        <div class="box">
+          <h3>Shop By Category</h3>
+          <div class="box-a">
+            <div>
+              <img src="{{ asset('front/assets/images/sc1.jpg') }}" alt="">
+              <span>Laptop</span>
+            </div>
+            <div>
+              <img src="{{ asset('front/assets/images/sc2.jpg') }}" alt="">
+              <span>Video Games</span>
+            </div>
+            <div>
+              <img src="{{ asset('front/assets/images/sc3.jpg') }}" alt="">
+              <span>Baby</span>
+            </div>
+            <div>
+              <img src="{{ asset('front/assets/images/sc4.jpg') }}" alt="">
+              <span>Toy & Games</span>
+            </div>
+          </div>
+          <a href="#">Shop Now</a>
+        </div>
+        <div class="box box-c">
+          <h3>Amazon Basics</h3>
+          <div>
+            <img src="{{ asset('front/assets/images/amazon basics.jpg') }}" alt="">
+          </div>
+          <a href="#">See More</a>
+        </div>
+        <div class="box-b">
+          <div class="best">
+            <h3>Sign up for the Best Experience</h3>
+            <button>Sign in securely</button>
+          </div>
+          <div>
+            <img src="{{ asset('front/assets/images/banner.jpg') }}" alt="">
           </div>
         </div>
-
-        <!-- carousel slider ends -->
       </div>
-      <div class="col-lg-6">
-        <div class="right-content">
-          <div class="row">
-            @foreach ($getFixedBanners as $fixedBanner)
-                
-           
-            <div class="col-lg-6">
-              <div class="right-first-image">
-                <div class="thumb">
-                  <div class="inner-content">
-                    <h4>{{ $fixedBanner->title }}</h4>
-                    <span>{{ $fixedBanner->alt }}</span>
-                  </div>
-                  <div class="hover-content">
-                    <div class="inner">
-                      <h4>{{ $fixedBanner->title }}</h4>
-                      <p>{{ $fixedBanner->alt }}</p>
-                      <div class="main-border-button">
-                        <a href="#">Discover More</a>
-                      </div>
-                    </div>
-                  </div>
-                  <img src="{{ asset('storage/front/images/banners/'.$fixedBanner->image) }}">
-                </div>
-              </div>
-            </div>
-            @endforeach
-            {{-- <div class="col-lg-6">
-              <div class="right-first-image">
-                <div class="thumb">
-                  <div class="inner-content">
-                    <h4>Men</h4>
-                    <span>Best Clothes For Men</span>
-                  </div>
-                  <div class="hover-content">
-                    <div class="inner">
-                      <h4>Men</h4>
-                      <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
-                      <div class="main-border-button">
-                        <a href="#">Discover More</a>
-                      </div>
-                    </div>
-                  </div>
-                  <img src="{{ asset('front/assets/images/baner-right-image-02.jpg') }}">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="right-first-image">
-                <div class="thumb">
-                  <div class="inner-content">
-                    <h4>Kids</h4>
-                    <span>Best Clothes For Kids</span>
-                  </div>
-                  <div class="hover-content">
-                    <div class="inner">
-                      <h4>Kids</h4>
-                      <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
-                      <div class="main-border-button">
-                        <a href="#">Discover More</a>
-                      </div>
-                    </div>
-                  </div>
-                  <img src="{{ asset('front/assets/images/baner-right-image-03.jpg') }}">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="right-first-image">
-                <div class="thumb">
-                  <div class="inner-content">
-                    <h4>Accessories</h4>
-                    <span>Best Trend Accessories</span>
-                  </div>
-                  <div class="hover-content">
-                    <div class="inner">
-                      <h4>Accessories</h4>
-                      <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
-                      <div class="main-border-button">
-                        <a href="#">Discover More</a>
-                      </div>
-                    </div>
-                  </div>
-                  <img src="{{ asset('front/assets/images/baner-right-image-04.jpg') }}">
-                </div>
-              </div>
-            </div> --}}
+      <div class="product-comp">
+        <div class="box box-c">
+          <h3>Shop Valentine's Day</h3>
+          <div>
+            <img src="{{ asset("front/assets/images/shop valentine's.jpg") }}" alt="">
           </div>
+          <a href="#">See More</a>
+        </div>
+        <div class="box box-c">
+          <h3>Electronics</h3>
+          <div>
+            <img src="{{ asset("front/assets/images/electronics.jpg") }}" alt="">
+          </div>
+          <a href="#">See More</a>
+        </div>
+        <div class="box box-c">
+          <h3>Find your ideal TV</h3>
+          <div>
+            <img src="{{ asset("front/assets/images/find your deal.jpg") }}" alt="">
+          </div>
+          <a href="#">See More</a>
+        </div>
+        <div class="box box-c">
+          <h3>Easy Returns</h3>
+          <div>
+            <img src="{{ asset('front/assets/images/easy return.jpg') }}" alt="">
+          </div>
+          <a href="#">See More</a>
         </div>
       </div>
     </div>
+    <div class="slider">
+      <div class="image-box">
+        <div class="slide">
+          <img src="{{ asset('front/assets/images/si1.jpg') }}" alt="">
+        </div>
+        <div class="slide">
+          <img src="{{ asset('front/assets/images/si2.jpg') }}" alt="">
+        </div>
+        <div class="slide">
+          <img src="{{ asset('front/assets/images/si3.jpg') }}" alt="">
+        </div>
+        <div class="slide">
+          <img src="{{ asset('front/assets/images/si4.jpg') }}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec-2">
+  <h3>Popular Products in Wireless Internationally</h3>
+  <div class="slide-sec">
+    <div class="l-btn"><i class="fa-solid fa-chevron-left"></i></div>
+    <div class="r-btn"><i class="fa-solid fa-chevron-right"></i></div>
+    <h3>Popular Products in Wireless Internationally</h3>
+    <ul class="product-slide">
+      <li><img src="{{ asset('front/assets/images/pinter1.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter2.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter3.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter4.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter5.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter6.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter7.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter8.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter9.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter10.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter11.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter12.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter13.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter14.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pinter15.jpg') }}" alt=""></li>
+    </ul>
+  </div>
+</section>
+<section class="sec-2">
+  <!-- <h3>Popular Products in Wirelessly Internationally</h3> -->
+  <div class="slide-sec">
+    <div class="l-btn btn-1b"><i class="fa-solid fa-chevron-left"></i></div>
+    <div class="r-btn btn-1a"><i class="fa-solid fa-chevron-right"></i></div>
+    <h3>Popular Products in PC Internationally</h3>
+    <ul class="product-slide product-slide-1">
+      <li><img src="{{ asset('front/assets/images/pc2.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc3.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc4.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc5.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc6.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc7.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc8.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc9.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc10.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc11.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc12.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc13.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc14.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/pc15.jpg') }}" alt=""></li>
+    </ul>
+  </div>
+</section>
+<div class="product-comp">
+  <div class="box box-c">
+    <h3>Shop Activity Trackers and Smart Watches</h3>
+    <div>
+      <img src="{{ asset('front/assets/images/watch.jpg') }}" alt="">
+    </div>
+    <a href="#">See More</a>
+  </div>
+  <div class="box box-d">
+    <h3>Comfy Styles for Men</h3>
+    <div class="box-a">
+      <div>
+        <img src="{{ asset('front/assets/images/cm1.jpg') }}" alt="">
+        <span>Sweatshirts</span>
+      </div>
+      <div>
+        <img src="{{ asset('front/assets/images/cm2.jpg') }}" alt="">
+        <span>Joggers</span>
+      </div>
+      <div>
+        <img src="{{ asset('front/assets/images/cm3.jpg') }}" alt="">
+        <span>Cardigans</span>
+      </div>
+      <div>
+        <img src="{{ asset('front/assets/images/cm4.jpg') }}" alt="">
+        <span>Easy Tees</span>
+      </div>
+    </div>
+    <a href="#">See More</a>
+  </div>
+  <div class="box box-d">
+    <h3>Gaming Merchandise</h3>
+    <div class="box-a">
+      <div>
+        <img src="{{ asset('front/assets/images/gm1.jpg') }}" alt="">
+        <span>Apparel</span>
+      </div>
+      <div>
+        <img src="{{ asset('front/assets/images/gm2.jpg') }}" alt="">
+        <span>Hats</span>
+      </div>
+      <div>
+        <img src="{{ asset('front/assets/images/gm3.jpg') }}" alt="">
+        <span>Action Figures</span>
+      </div>
+      <div>
+        <img src="{{ asset('front/assets/images/gm4.jpg') }}" alt="">
+        <span>Mugs</span>
+      </div>
+    </div>
+    <a href="#">See More</a>
+  </div>
+  <div class="box box-c">
+    <h3>Shop Pet Supplies</h3>
+    <div>
+      <img src="{{ asset('front/assets/images/pets.jpg') }}" alt="">
+    </div>
+    <a href="#">See More</a>
+  </div>
+
+</div>
+<div class="product-comp">
+  <div class="box box-c">
+    <h3>For your Fitness Needs</h3>
+    <div>
+      <img src="{{ asset('front/assets/images/fitness.jpg') }}" alt="">
+    </div>
+    <a href="#">Shop Now</a>
+  </div>
+  <div class="box box-c">
+    <h3>Create with Strip Lights</h3>
+    <div>
+      <img src="{{ asset('front/assets/images/light.jpg') }}" alt="">
+    </div>
+    <a href="#">Shop Now</a>
+  </div>
+  <div class="box box-c">
+    <h3>New arrivals in Toys</h3>
+    <div>
+      <img src="{{ asset('front/assets/images/craft.jpg') }}" alt="">
+    </div>
+    <a href="#">Shop Now</a>
+  </div>
+  <div class="box box-c">
+    <h3>Kindle E Readers</h3>
+    <div>
+      <img src="{{ asset('front/assets/images/reader.jpg') }}" alt="">
+    </div>
+    <a href="#">Shop Now</a>
   </div>
 </div>
-<!-- ***** Main Banner Area End ***** -->
-
-<!-- ***** Men Area Starts ***** -->
-<section class="section" id="men">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="section-heading">
-          <h2>Men's Latest</h2>
-          <span>Details to details is what makes Hexashop different from the other themes.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="men-item-carousel">
-          <div class="owl-men-item owl-carousel">
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/men-01.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Classic Spring</h4>
-                <span>$120.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/men-02.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Air Force 1 X</h4>
-                <span>$90.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/men-03.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Love Nana ‘20</h4>
-                <span>$150.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/men-01.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Classic Spring</h4>
-                <span>$120.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<section class="sec-2">
+  <!-- <h3>Popular Products in Wirelessly Internationally</h3> -->
+  <div class="slide-sec">
+    <div class="l-btn btn-1c"><i class="fa-solid fa-chevron-left"></i></div>
+    <div class="r-btn btn-1d"><i class="fa-solid fa-chevron-right"></i></div>
+    <h3>Top Sellers in Books</h3>
+    <ul class="product-slide product-slide-2">
+      <li><img src="{{ asset('front/assets/images/b1.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/b2.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/b3.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/b4.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/b5.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/b6.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/b7.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/b8.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/b9.jpg') }}" alt=""></li>
+      <li><img src="{{ asset('front/assets/images/b10.jpg') }}" alt=""></li>
+    </ul>
   </div>
 </section>
-<!-- ***** Men Area Ends ***** -->
 
-<!-- ***** Women Area Starts ***** -->
-<section class="section" id="women">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="section-heading">
-          <h2>Women's Latest</h2>
-          <span>Details to details is what makes Hexashop different from the other themes.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="women-item-carousel">
-          <div class="owl-women-item owl-carousel">
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/women-01.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>New Green Jacket</h4>
-                <span>$75.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/women-02.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Classic Dress</h4>
-                <span>$45.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/women-03.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Spring Collection</h4>
-                <span>$130.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/women-01.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Classic Spring</h4>
-                <span>$120.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ***** Women Area Ends ***** -->
-
-<!-- ***** Kids Area Starts ***** -->
-<section class="section" id="kids">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="section-heading">
-          <h2>Kid's Latest</h2>
-          <span>Details to details is what makes Hexashop different from the other themes.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="kid-item-carousel">
-          <div class="owl-kid-item owl-carousel">
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/kid-01.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>School Collection</h4>
-                <span>$80.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/kid-02.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Summer Cap</h4>
-                <span>$12.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/kid-03.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Classic Kid</h4>
-                <span>$30.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            <div class="item">
-              <div class="thumb">
-                <div class="hover-content">
-                  <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <img src="{{ asset('front/assets/images/kid-01.jpg') }}" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Classic Spring</h4>
-                <span>$120.00</span>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ***** Kids Area Ends ***** -->
-
-<!-- ***** Explore Area Starts ***** -->
-<section class="section" id="explore">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="left-content">
-          <h2>Explore Our Products</h2>
-          <span>You are allowed to use this HexaShop HTML CSS template. You can feel free to modify or edit this layout.
-            You can convert this template as any kind of ecommerce CMS theme as you wish.</span>
-          <div class="quote">
-            <i class="fa fa-quote-left"></i>
-            <p>You are not allowed to redistribute this template ZIP file on any other website.</p>
-          </div>
-          <p>There are 5 pages included in this HexaShop Template and we are providing it to you for absolutely free of
-            charge at our TemplateMo website. There are web development costs for us.</p>
-          <p>If this template is beneficial for your website or business, please kindly <a rel="nofollow"
-              href="https://paypal.me/templatemo" target="_blank">support us</a> a little via PayPal. Please also tell
-            your friends about our great website. Thank you.</p>
-          <div class="main-border-button">
-            <a href="products.html">Discover More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="right-content">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="leather">
-                <h4>Leather Bags</h4>
-                <span>Latest Collection</span>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="first-image">
-                <img src="{{ asset('front/assets/images/explore-image-01.jpg') }}" alt="">
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="second-image">
-                <img src="{{ asset('front/assets/images/explore-image-02.jpg') }}" alt="">
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="types">
-                <h4>Different Types</h4>
-                <span>Over 304 Products</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ***** Explore Area Ends ***** -->
-
-<!-- ***** Social Area Starts ***** -->
-<section class="section" id="social">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="section-heading">
-          <h2>Social Media</h2>
-          <span>Details to details is what makes Hexashop different from the other themes.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row images">
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>Fashion</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="{{ asset('front/assets/images/instagram-01.jpg') }}" alt="">
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>New</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="{{ asset('front/assets/images/instagram-02.jpg') }}" alt="">
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>Brand</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="{{ asset('front/assets/images/instagram-03.jpg') }}" alt="">
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>Makeup</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="{{ asset('front/assets/images/instagram-04.jpg') }}" alt="">
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>Leather</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="{{ asset('front/assets/images/instagram-05.jpg') }}" alt="">
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="thumb">
-          <div class="icon">
-            <a href="http://instagram.com">
-              <h6>Bag</h6>
-              <i class="fa fa-instagram"></i>
-            </a>
-          </div>
-          <img src="{{ asset('front/assets/images/instagram-06.jpg') }}" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ***** Social Area Ends ***** -->
-
-<!-- ***** Subscribe Area Starts ***** -->
-<div class="subscribe">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8">
-        <div class="section-heading">
-          <h2>By Subscribing To Our Newsletter You Can Get 30% Off</h2>
-          <span>Details to details is what makes Hexashop different from the other themes.</span>
-        </div>
-        <form id="subscribe" action="" method="get">
-          <div class="row">
-            <div class="col-lg-5">
-              <fieldset>
-                <input name="name" type="text" id="name" placeholder="Your Name" required="">
-              </fieldset>
-            </div>
-            <div class="col-lg-5">
-              <fieldset>
-                <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address"
-                  required="">
-              </fieldset>
-            </div>
-            <div class="col-lg-2">
-              <fieldset>
-                <button type="submit" id="form-submit" class="main-dark-button"><i
-                    class="fa fa-paper-plane"></i></button>
-              </fieldset>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="col-lg-4">
-        <div class="row">
-          <div class="col-6">
-            <ul>
-              <li>Store Location:<br><span>Sunny Isles Beach, FL 33160, United States</span></li>
-              <li>Phone:<br><span>010-020-0340</span></li>
-              <li>Office Location:<br><span>North Miami Beach</span></li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <ul>
-              <li>Work Hours:<br><span>07:30 AM - 9:30 PM Daily</span></li>
-              <li>Email:<br><span>info@company.com</span></li>
-              <li>Social Media:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Behance</a>,
-                  <a href="#">Linkedin</a></span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{{-- <script src="app.js"></script> --}}
 
 @endsection
+
