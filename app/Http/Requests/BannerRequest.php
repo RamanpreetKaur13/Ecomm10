@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class BannerRequest extends FormRequest
 {
@@ -22,23 +23,54 @@ class BannerRequest extends FormRequest
     public function rules(): array
     {
         if(request()->isMethod('put')){
-            return [
+            $rules= [
                 'title' => 'required',
                 'link' => 'nullable',
                 'type' => 'required',
                 'alt' => 'required',
-                'sort' => 'required|numeric',
+                'sort' => 'required|numeric|unique:banners,sort,' . $this->banner . ',id',
+                'image' => 'required|dimensions:width=3000,height=1200',
+                
             ];
+            // Modify image validation message for PUT requests
+    
+            $rules['image'] = [
+                'required',
+                Rule::dimensions()->width(3000)->height(1200),
+            ];
+            return $rules;
         }
         else{
-            return [
+            $rules =  [
                 'title' => 'required',
                 'link' => 'nullable',
                 'type' => 'required',
                 'alt' => 'required',
-                'sort' => 'required|numeric',
-                'image' => 'required',
+                'sort' => 'required|numeric|unique:banners,sort',
+                'image' => 'required|dimensions:width=3000,height=1200',
             ];
+                // Modify image validation message for PUT requests
+    
+        $rules['image'] = [
+            'required',
+            Rule::dimensions()->width(3000)->height(1200),
+        ];
+
+            return $rules;
         }
+
+          
+    
+
     }
+
+    public function messages(): array
+    {
+        return [
+            'image.dimensions' => 'The image must be 3000x1200 pixels.',
+            
+        ];
+    }
+
+
 }

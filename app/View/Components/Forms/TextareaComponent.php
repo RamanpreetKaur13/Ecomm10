@@ -11,14 +11,15 @@ class TextareaComponent extends Component
     /**
      * Create a new component instance.
      */
-    public $label , $name , $placeholder , $col;
+    public $label , $name , $placeholder , $col, $spanStar;
 
-    public function __construct($label , $name ,$placeholder , $col )
+    public function __construct($label , $name ,$placeholder , $col, $spanStar )
     {
         $this->label = $label;
         $this->name = $name;
         $this->placeholder = $placeholder;
         $this->col = $col;
+        $this->spanStar = $spanStar;
     }
     /**
      * Get the view / contents that represent the component.

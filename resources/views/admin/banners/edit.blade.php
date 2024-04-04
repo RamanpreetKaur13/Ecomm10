@@ -36,16 +36,21 @@
 
 @endpush
 @section('content')
+
+
     <div class="content-wrapper">
+       
         @include('admin.includes.page_header', [
             'page_name' => 'Banners',
             'breadcrumb_link' => route('admin.dashboard'),
             'breadcrumb_item' => 'banners',
         ])
+         @include('alert_messages')
         @include('admin.includes.page_main_content', [
             'card_title' => 'Edit Banners',
             'back_link' => route('admin.banners.index'),
         ])
+       
                             <form action="{{ route('admin.banners.update', $banner->id) }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
@@ -53,7 +58,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="form-group col-12">
-                                            <label for="title">Banner Title</label>
+                                            <label for="title">Banner Title <span class="text-danger">*</span></label>
                                             <textarea name="title" id="title" class="form-control summernote"
                                             placeholder="Enter Banner Title">{{ old('title', $banner->title) }}</textarea>
                                             {{-- <input type="text" class="form-control" id="summernote"
@@ -71,13 +76,13 @@
 
                                        
                                         <div class="form-group col-6">
-                                            <label for="alt">Banner Alt <small>only for admin (not for front)</small></label>
+                                            <label for="alt">Banner Alt  <small>only for admin (not for front)</small><span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="alt"
                                                 name="alt" placeholder="Enter Banner alt"
                                                 value="{{ old('alt', $banner->alt) }}">
                                         </div>
                                         <div class="form-group col-6">
-                                            <label for="type">Banner Type</label>
+                                            <label for="type">Banner Type <span class="text-danger">*</span></label>
                                             <select class="form-control" id="type" name="type">
                                                 <option value="">select</option>
                                                 <option value="Fixed" @if ($banner->type ==='Fixed' ) selected @endif>
@@ -112,7 +117,7 @@
                                     <div class="row">
 
                                         <div class="form-group col-6">
-                                            <label for="image">Banner Image</label>
+                                            <label for="image">Banner Image <span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="image"
@@ -125,10 +130,13 @@
                                                     <span class="input-group-text">Upload</span>
                                                 </div>
                                             </div>
+                                           @error('image')
+                                               <span class="text-danger">{{ $message }}</span>
+                                           @enderror
                                         </div>
 
                                         <div class="form-group col-6 d-none">
-                                            <label for="status">Banner Status</label>
+                                            <label for="status">Banner Status <span class="text-danger">*</span></label>
                                             <input type="hidden" class="form-control" id="status" style="background-color: #e9ecef80; color:#333;"
                                                 name="status" placeholder="Enter Banner status"
                                                
@@ -137,7 +145,7 @@
 
                                       
                                         <div class="form-group col-6">
-                                            <label for="sort"> Sort</label>
+                                            <label for="sort"> Sort <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="sort"
                                                 name="sort" placeholder="Enter sort number" value="{{ old('sort',$banner->sort)  }}">
                                                

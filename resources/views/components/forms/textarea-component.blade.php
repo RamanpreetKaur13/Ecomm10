@@ -3,8 +3,8 @@
 </div> --}}
 
 <div class="form-group {{ $col }}">
-    <label for="{{ $name }}">{{ $label }}</label>
+    <label for="{{ $name }}">{{ $label }} <span class="text-danger">{{ $spanStar }}</span></label>
     <textarea class="form-control summernote" name="{{ $name }}" id="{{ $name }}" rows="1" placeholder="{{ $placeholder }}"
-        value="{{ old($name) }}"></textarea>
+        >{{ old($name) }}</textarea>
 </div>
 

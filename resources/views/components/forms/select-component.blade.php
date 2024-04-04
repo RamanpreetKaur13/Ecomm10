@@ -3,7 +3,7 @@
 </div> --}}
 
 <div class="form-group col-6">
-    <label for="{{ $name }}">{{ $label }}</label>
+    <label for="{{ $name }}">{{ $label }} <span class="text-danger">{{ $spanStar }}</span></label>
     <select class="form-control" id="{{ $name }}" name="{{ $name }}">
         <option value="">select</option>
         @foreach ($collection as $item)

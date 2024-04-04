@@ -6,6 +6,7 @@
     'breadcrumb_link' => route('admin.dashboard'),
     'breadcrumb_item' => 'banners',
     ])
+      @include('alert_messages')
     @include('admin.includes.page_main_content', [
     'card_title' => 'Add Banners',
     'back_link' => route('admin.banners.index'),
@@ -14,7 +15,7 @@
         @csrf
         <div class="card-body">
             <div class="row">
-                <x-forms.textarea-component col="col-12" label="Banner Title" name="title" placeholder="Enter Banner Title" />
+                <x-forms.textarea-component col="col-12" label="Banner Title" name="title" placeholder="Enter Banner Title" spanStar='*' />
                 
             </div>
             <div class="row">
@@ -22,13 +23,14 @@
                 
 
                 {{-- <textarea name="title" id="title"cols="30" rows="10"></textarea> --}}
-                <x-forms.file-component label="Banner Image" name="image" />
+                <x-forms.file-component label="Banner Image" name="image" dimension='3000 x 1200px' spanStar='*'/>
+               
             </div>
             <div class="row">
-                <x-forms.text-input label="Banner Image Link" type="text" name="link" placeholder="Enter image link" />
+                <x-forms.text-input label="Banner Image Link" type="text" name="link" placeholder="Enter image link" spanStar='*'/>
                 <div class="form-group col-6">
-                    <label for="type">Banner Type</label>
-                    <select class="form-control" id="type" name="type">
+                    <label for="type">Banner Type <span class="text-danger">*</span> </label>
+                    <select class="form-control" id="type" name="type" >
                         <option value="">select</option>
                         <option value="Fixed" @if (old('type')==='Fixed' ) selected @endif>
                             Fixed</option>
@@ -43,9 +45,9 @@
             </div>
             <div class="row">
                 <x-forms.text-input label="Banner Alternative Text" type="text" name="alt"
-                    placeholder="Enter Alternative Text" />
+                    placeholder="Enter Alternative Text"  spanStar='*'/>
 
-                <x-forms.text-input label="Banner Sorting" type="text" name="sort" placeholder="Enter Sorting number" />
+                <x-forms.text-input label="Banner Sorting" type="text" name="sort" placeholder="Enter Sorting number" spanStar='*' />
 
             </div>
             <hr>

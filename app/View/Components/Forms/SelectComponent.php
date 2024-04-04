@@ -11,13 +11,14 @@ class SelectComponent extends Component
     /**
      * Create a new component instance.
      */
-    public $label , $name , $collection;
+    public $label , $name , $collection, $spanStar;
 
-    public function __construct($label , $name ,$collection )
+    public function __construct($label , $name ,$collection , $spanStar)
     {
         $this->label = $label;
         $this->name = $name;
         $this->collection = $collection;
+        $this->spanStar = $spanStar;
     }
 
     /**

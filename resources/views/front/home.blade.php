@@ -80,21 +80,21 @@
         <div class="box box-c">
           <h3>Shop Valentine's Day</h3>
           <div>
-            <img src="{{ asset("front/assets/images/shop valentine's.jpg") }}" alt="">
+            <img src="{{ asset(" front/assets/images/shop valentine's.jpg") }}" alt="">
           </div>
           <a href="#">See More</a>
         </div>
         <div class="box box-c">
           <h3>Electronics</h3>
           <div>
-            <img src="{{ asset("front/assets/images/electronics.jpg") }}" alt="">
+            <img src="{{ asset(" front/assets/images/electronics.jpg") }}" alt="">
           </div>
           <a href="#">See More</a>
         </div>
         <div class="box box-c">
           <h3>Find your ideal TV</h3>
           <div>
-            <img src="{{ asset("front/assets/images/find your deal.jpg") }}" alt="">
+            <img src="{{ asset(" front/assets/images/find your deal.jpg") }}" alt="">
           </div>
           <a href="#">See More</a>
         </div>
@@ -109,10 +109,26 @@
     </div>
     <div class="slider">
       <div class="image-box">
+        @if ($getScrollBanners->isNotEmpty())
+        @foreach ($getScrollBanners as $scrollBanner)
+       
         <div class="slide">
-          <img src="{{ asset('front/assets/images/si1.jpg') }}" alt="">
+          
+          {{-- <img src="https://fakeimg.pl/3000x200/?text=Banner&font=lobster" alt=""> --}}
+          <img src="{{ asset('storage/front/images/banners/'.$scrollBanner->image) }}" alt="">
         </div>
+        @endforeach
+        @else
+        
         <div class="slide">
+          {{-- <img src="https://fakeimg.pl/3000x600/?text=Banner&font=lobster" alt=""> --}}
+          <img src="{{ asset('front/assets/images/bannerPlaceholderImg.png') }}" alt="">
+        </div>
+
+        @endif
+       
+       
+        {{-- <div class="slide">
           <img src="{{ asset('front/assets/images/si2.jpg') }}" alt="">
         </div>
         <div class="slide">
@@ -120,7 +136,7 @@
         </div>
         <div class="slide">
           <img src="{{ asset('front/assets/images/si4.jpg') }}" alt="">
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>
@@ -289,4 +305,3 @@
 {{-- <script src="app.js"></script> --}}
 
 @endsection
-

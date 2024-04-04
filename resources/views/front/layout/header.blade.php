@@ -197,24 +197,28 @@
         </div>
     </div>
 </div>
+
+
+
+
 <div class="second">
     <div class="second-1">
-        <div>
-            <i class="fas fa-bars"></i>
-            <span>All</span>
-        </div>
+      <div>
+        <i class="fas fa-bars"></i>
+        <span>All</span>
+      </div>
     </div>
     <div class="second-2">
-        <ul>
-            <li>Today's Deal</li>
-            <li>Customer Service</li>
-            <li>Registry</li>
-            <li>Gift Cards</li>
-            <li>Sell</li>
-        </ul>
+      <ul>
+        <li>Today's Deal</li>
+        <li>Customer Service</li>
+        <li>Registry</li>
+        <li>Gift Cards</li>
+        <li>Sell</li>
+      </ul>
     </div>
     <div class="second-3">
-        <span>Shop Valentine's Day</span>
+      <span>Shop Valentine's Day</span>
     </div>
-</div>
+  </div>
 </header>

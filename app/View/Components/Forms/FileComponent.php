@@ -11,12 +11,14 @@ class FileComponent extends Component
     /**
      * Create a new component instance.
      */
-    public $label , $name ;
+    public $label , $name,$dimension , $spanStar ;
 
-    public function __construct($label , $name )
+    public function __construct($label , $name,$dimension ,$spanStar)
     {
         $this->label = $label;
         $this->name = $name;
+        $this->dimension = $dimension;
+        $this->spanStar = $spanStar;
     }
 
     /**

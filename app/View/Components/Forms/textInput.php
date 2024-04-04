@@ -15,12 +15,14 @@ class textInput extends Component
     public $type;
     public $name;
     public $placeholder;
-    public function __construct($label ,  $type , $name ,$placeholder )
+    public $spanStar;
+    public function __construct($label ,  $type , $name ,$placeholder , $spanStar)
     {
         $this->label = $label;
         $this->type = $type;
         $this->name = $name;
         $this->placeholder = $placeholder;
+        $this->spanStar = $spanStar;
     }
 
     /**
