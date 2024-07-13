@@ -29,13 +29,13 @@ class BannerRequest extends FormRequest
                 'type' => 'required',
                 'alt' => 'required',
                 'sort' => 'required|numeric|unique:banners,sort,' . $this->banner . ',id',
-                'image' => 'required|dimensions:width=3000,height=1200',
+                'image' => 'dimensions:width=3000,height=1200',
                 
             ];
             // Modify image validation message for PUT requests
     
             $rules['image'] = [
-                'required',
+                
                 Rule::dimensions()->width(3000)->height(1200),
             ];
             return $rules;

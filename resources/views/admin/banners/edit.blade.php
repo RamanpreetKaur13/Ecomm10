@@ -87,8 +87,8 @@
                                                 <option value="">select</option>
                                                 <option value="Fixed" @if ($banner->type ==='Fixed' ) selected @endif>
                                                     Fixed</option>
-                                                <option value="Scroll" @if ($banner->type==='Scroll' ) selected @endif>
-                                                    Scroll</option>
+                                                <option value="Slider" @if ($banner->type==='Slider' ) selected @endif>
+                                                    Slider</option>
                                             </select>
                                             @error('type')
                                             <span class="text-danger"> {{ $message }}</span>

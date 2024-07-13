@@ -27,15 +27,15 @@
                
             </div>
             <div class="row">
-                <x-forms.text-input label="Banner Image Link" type="text" name="link" placeholder="Enter image link" spanStar='*'/>
+                <x-forms.text-input label="Banner Image Link" type="text" name="link" placeholder="Enter image link" spanStar=''/>
                 <div class="form-group col-6">
                     <label for="type">Banner Type <span class="text-danger">*</span> </label>
                     <select class="form-control" id="type" name="type" >
                         <option value="">select</option>
                         <option value="Fixed" @if (old('type')==='Fixed' ) selected @endif>
                             Fixed</option>
-                        <option value="Scroll" @if (old('type')==='Scroll' ) selected @endif>
-                            Scroll</option>
+                        <option value="Slider" @if (old('type')==='Slider' ) selected @endif>
+                            Slider</option>
                     </select>
                     @error('type')
                     <span class="text-danger"> {{ $message }}</span>
